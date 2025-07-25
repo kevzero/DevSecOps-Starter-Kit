@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import os
-import psycopg2
 
 app = FastAPI(title='DevSecOps Backend')
 
