@@ -2,7 +2,6 @@
 
 ## 📌 Overview
 A complete **DevSecOps Starter Kit** to build secure, modern web applications with:
-
 - **Backend:** FastAPI + PostgreSQL
 - **Frontend:** React + Vite
 - **Security Tools:** Bandit (Python Security Scan), Trivy (Docker Image Scan)
@@ -22,9 +21,9 @@ A complete **DevSecOps Starter Kit** to build secure, modern web applications wi
 ---
 
 ## ⚙️ Requirements
-- **Docker & Docker Compose**
-- **Node.js & npm** (if running frontend locally)
-- **Python 3.11+** (if running backend locally)
+- Docker & Docker Compose
+- Node.js & npm (if running frontend locally)
+- Python 3.11+ (if running backend locally)
 
 ---
 
@@ -106,7 +105,7 @@ Access at: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 🏗 Production Build
+## 🏗 Production Deployment
 
 ### 1. Build frontend for production
 ```bash
@@ -116,14 +115,7 @@ npm run build
 ```
 The production build will be in the `dist/` folder.
 
-### 2. Serve the build locally (optional)
-```bash
-npm install -g serve
-serve -s dist -l 3000
-```
-Access at: [http://localhost:3000](http://localhost:3000)
-
-### 3. Run in Docker (Production mode)
+### 2. Run in Docker (Production mode)
 ```bash
 docker-compose -f docker-compose.prod.yml up -d
 ```
@@ -194,14 +186,6 @@ Workflow file: `.github/workflows/devsecops.yml`
 Docker Compose orchestrates all services.
 ```
 
-![Architecture Diagram](https://dummyimage.com/600x400/cccccc/000000&text=DevSecOps+Architecture)
-
----
-
-## 📸 Screenshots
-- **Frontend UI:** ![Frontend Screenshot](https://dummyimage.com/600x400/cccccc/000000&text=Frontend)
-- **Swagger Docs:** ![Swagger Screenshot](https://dummyimage.com/600x400/cccccc/000000&text=Swagger+Docs)
-
 ---
 
 ## 🔮 Future Enhancements
@@ -213,15 +197,3 @@ Docker Compose orchestrates all services.
 
 ## 📜 License
 MIT
-
----
-
-### **About**
-DevSecOps Starter Kit is a ready-to-use template to set up a secure development pipeline with FastAPI, React, Docker, and GitHub Actions. It includes security checks, vulnerability scans, and automated deployments, helping developers implement DevSecOps best practices from day one.
-
-**Topics:**
-react, docker, template, security, deployment, starter-kit, automated, vulnerability-scanners, security-tools, devsecops, ready-to-use, fastapi, ci-cd
-
-**Resources:**
-- License: MIT
-- GitHub Actions Workflow: Included
