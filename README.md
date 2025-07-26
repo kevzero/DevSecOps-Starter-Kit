@@ -2,6 +2,7 @@
 
 ## 📌 Overview
 A complete **DevSecOps Starter Kit** to build secure, modern web applications with:
+
 - **Backend:** FastAPI + PostgreSQL
 - **Frontend:** React + Vite
 - **Security Tools:** Bandit (Python Security Scan), Trivy (Docker Image Scan)
@@ -21,7 +22,7 @@ A complete **DevSecOps Starter Kit** to build secure, modern web applications wi
 ---
 
 ## ⚙️ Requirements
-- **Docker** & **Docker Compose**
+- **Docker & Docker Compose**
 - **Node.js & npm** (if running frontend locally)
 - **Python 3.11+** (if running backend locally)
 
@@ -59,6 +60,8 @@ docker-compose up -d
 - **Frontend (Dev):** [http://localhost:5173](http://localhost:5173)
 - **Backend API:** [http://localhost:8000](http://localhost:8000)
 - **Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
 
 ### Stop services
 ```bash
@@ -121,29 +124,64 @@ serve -s dist -l 3000
 Access at: [http://localhost:3000](http://localhost:3000)
 
 ### 3. Run in Docker (Production mode)
-Use the production Compose file:
 ```bash
 docker-compose -f docker-compose.prod.yml up -d
+```
+
+### ✅ Post-Deployment Verification
+- **Frontend (Prod):** [http://localhost:3000](http://localhost:3000)
+- **Backend API:** [http://localhost:8000](http://localhost:8000)
+- **Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+Check container status:
+```bash
+docker ps
+```
+Logs:
+```bash
+docker-compose -f docker-compose.prod.yml logs -f
+```
+
+---
+
+## 🔍 Troubleshooting
+
+### 1. `.env` File Missing
+Create `.env` with:
+```
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=app
+```
+
+### 2. Port Conflicts
+Stop other services or edit `docker-compose.prod.yml` to use different ports.
+
+### 3. Healthcheck Failures
+Restart services:
+```bash
+docker-compose up -d --force-recreate
+```
+
+### 4. Blank Frontend Page
+Rebuild the frontend:
+```bash
+cd frontend
+npm install && npm run build
 ```
 
 ---
 
 ## 🔐 Security Tools
-- **Bandit:** Scans Python backend for security issues
-- **Trivy:** Scans Docker images for vulnerabilities
-
-Run manually:
-```bash
-bandit -r backend
-./trivy image devsecops-backend
-```
+- **Bandit:** `bandit -r backend`
+- **Trivy:** `trivy image devsecops-backend`
 
 ---
 
 ## ⚡ CI/CD Pipeline
-- On every **push**, GitHub Actions will:
-  - Run **Bandit** security scan on Python code
-  - Build Docker image and scan with **Trivy**
+On every **push**, GitHub Actions will:
+- Run **Bandit** security scan on Python code
+- Build Docker image and scan with **Trivy**
 
 Workflow file: `.github/workflows/devsecops.yml`
 
@@ -156,6 +194,14 @@ Workflow file: `.github/workflows/devsecops.yml`
 Docker Compose orchestrates all services.
 ```
 
+![Architecture Diagram](https://dummyimage.com/600x400/cccccc/000000&text=DevSecOps+Architecture)
+
+---
+
+## 📸 Screenshots
+- **Frontend UI:** ![Frontend Screenshot](https://dummyimage.com/600x400/cccccc/000000&text=Frontend)
+- **Swagger Docs:** ![Swagger Screenshot](https://dummyimage.com/600x400/cccccc/000000&text=Swagger+Docs)
+
 ---
 
 ## 🔮 Future Enhancements
@@ -167,3 +213,15 @@ Docker Compose orchestrates all services.
 
 ## 📜 License
 MIT
+
+---
+
+### **About**
+DevSecOps Starter Kit is a ready-to-use template to set up a secure development pipeline with FastAPI, React, Docker, and GitHub Actions. It includes security checks, vulnerability scans, and automated deployments, helping developers implement DevSecOps best practices from day one.
+
+**Topics:**
+react, docker, template, security, deployment, starter-kit, automated, vulnerability-scanners, security-tools, devsecops, ready-to-use, fastapi, ci-cd
+
+**Resources:**
+- License: MIT
+- GitHub Actions Workflow: Included
